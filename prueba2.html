@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Mostrar Imagen al Azar</title>
+</head>
+<body>
+    <button id="mostrarBoton">Mostrar Imagen al Azar</button>
+    
+    <img class="oculta" src="./images/parte1_pieDer.svg" alt="Imagen 1">
+    <img class="oculta" src="./images/parte1_pieDer.svg" alt="Imagen 2">
+    <img class="oculta" src="./images/parte1_pieDer.svg" alt="Imagen 3">
+    <img class="oculta" src="./images/parte1_pieDer.svg" alt="Imagen 4">
+    <img class="oculta" src="./images/parte1_pieDer.svg" alt="Imagen 5">
+    <script>
+        const imagenes = document.querySelectorAll('.oculta');
+        const boton = document.getElementById('mostrarBoton');
+        let indiceActual = 0;
+
+        boton.addEventListener('click', mostrarSiguienteImagen);
+
+        function mostrarSiguienteImagen() {
+            if (indiceActual < imagenes.length) {
+                imagenes[indiceActual].style.display = 'block';
+                indiceActual++;
+
+                if (indiceActual === imagenes.length) {
+                    boton.textContent = 'Terminar';
+                }
+            } else {
+                boton.disabled = true;
+                alert('Se han mostrado todas las imágenes.');
+            }
+        }
+    </script>
+</body>
+</html>

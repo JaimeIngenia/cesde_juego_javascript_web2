@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rojo{
+    border: solid red 3px;
+}
+
+.borderJ{
+    border: solid red 3px;
+}
+
+.oculta{
+    border: solid blue 3px;
+    width: 500px;
+    display: none;
+}
+
+.principal__container{
+    color: red;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: solid red 3px;
+}
+
+.dibujo{
+    position: relative;
+    border: solid rgb(78, 96, 0) 3px;
+    width: 500px;
+    height: 600px;
+}
+
+.box_part{
+    position: absolute;
+    
+}
+
+.p1{
+    transform: translate(58%, -95%);
+    left: 50%;
+    top: 80%;
+    width: 28px;
+}
+
+.p2{
+    transform: translate(-50%, -95%);
+    left: 50%;
+    top: 80%;
+    width: 22px;
+    
+}
+
+.p3{
+    transform: translate(100%,0%);
+    /* border: solid red 3px; */
+    left: 50%;
+    top: 44%;
+    width: 30px;
+}
+
+.p4{
+    transform: translate(100%,0%);
+    /* border: solid red 3px; */
+    left: 33%;
+    top: 44%;
+    width: 35px;
+}
+
+.p5{
+    /* border: solid red 3px; */
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 60px;
+}
+
+.p6{
+    /* border: solid red 3px; */
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 35%;
+    width: 60px;    
+}
+
+.p7{
+    /* border: solid red 3px; */
+    transform: translate(-54%, -50%);
+    left: 50%;
+    top: 23%;
+    width: 70px; 
+    
+}
+
+.letras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: solid blue 3px;
+    width: 50%;
+}
+
+    .letras img{
+        width: 50px;
+    }

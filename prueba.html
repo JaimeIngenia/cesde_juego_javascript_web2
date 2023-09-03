@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego del Ahorcado</title>
+</head>
+<body>
+    <h1>Juego del Ahorcado</h1>
+    <div id="wordDisplay"></div>
+    <div id="guessesLeft">Intentos restantes: 6</div>
+    <input type="text" id="guessInput" placeholder="Adivina una letra">
+    <button id="guessButton">Adivinar</button>
+    <div id="message"></div>
+
+    <script>
+        // Palabra a adivinar
+        const secretWord = "javascript";
+        let displayedWord = "_".repeat(secretWord.length);
+        let adivinanzasRestantes = 6;
+
+        const wordDisplay = document.getElementById("wordDisplay");
+        const guessesLeftDisplay = document.getElementById("guessesLeft");
+        const guessInput = document.getElementById("guessInput");
+        const guessButton = document.getElementById("guessButton");
+        const messageDisplay = document.getElementById("message");
+
+        // Inicializar la pantalla de la palabra
+        wordDisplay.textContent = displayedWord;
+
+        guessButton.addEventListener("click", () => {
+            const guess = guessInput.value.toLowerCase();
+            guessInput.value = "";
+
+            if (guess.length !== 1 || !guess.match(/[a-z]/)) {
+                messageDisplay.textContent = "Ingresa una letra válida.";
+                return;
+            }
+
+            if (secretWord.includes(guess)) {
+                for (let i = 0; i < secretWord.length; i++) {
+                    if (secretWord[i] === guess) {
+                        displayedWord = displayedWord.substring(0, i) + guess + displayedWord.substring(i + 1);
+                    }
+                }
+                wordDisplay.textContent = displayedWord;
+                if (!displayedWord.includes("_")) {
+                    messageDisplay.textContent = "¡Ganaste! La palabra era: " + secretWord;
+                    guessButton.disabled = true;
+                }
+            } else {
+                adivinanzasRestantes--;
+                guessesLeftDisplay.textContent = "Intentos restantes: " + adivinanzasRestantes;
+                if (adivinanzasRestantes === 0) {
+                    messageDisplay.textContent = "Perdiste. La palabra era: " + secretWord;
+                    guessButton.disabled = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
